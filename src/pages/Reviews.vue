@@ -2,7 +2,7 @@
   <Layout>
     <header>
       <div class="container py-16">
-        <h1 class="font-extrabold uppercase text-7xl">{{ $page.reviews.edges.length }} No faff reviews</h1>
+        <h1 class="font-extrabold uppercase text-7xl">{{ searchReviews.length }} No faff {{ title() }}</h1>
       </div>
     </header>
 
@@ -60,6 +60,9 @@ export default {
         page_title: 'Reviews',
         page_path: '/reviews/',
       })
+    },
+    title() {
+      this.searchReviews.length > 1 ? 'reviews' : 'review'
     },
   },
   computed: {
