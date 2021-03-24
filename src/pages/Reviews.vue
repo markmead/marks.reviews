@@ -51,6 +51,7 @@ export default {
   data() {
     return {
       reviews: [],
+      search: '',
     }
   },
   methods: {
@@ -63,12 +64,7 @@ export default {
   },
   computed: {
     searchReviews() {
-      if (process.isClient) {
-        const url = new URL(window.location)
-        const search = url.searchParams.get('q')
-      }
-
-      if (!search) return this.reviews
+      if (!this.search) return this.reviews
 
       return this.reviews.filter((review) => {
         return review.node.title.toLowerCase().includes(search.toLowerCase().trim())
@@ -76,6 +72,9 @@ export default {
     },
   },
   mounted() {
+    const url = new URL(window.location)
+
+    this.search = url.searchParams.get('q')
     this.reviews = this.$page.reviews.edges
   },
   components: {
