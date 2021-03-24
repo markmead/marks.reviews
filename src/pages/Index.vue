@@ -15,7 +15,7 @@
 
           <div>
             <g-link
-              to="/reviews"
+              to="/reviews/"
               class="relative inline-flex items-center justify-center leading-none border border-black group"
             >
               <span

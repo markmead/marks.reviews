@@ -9,8 +9,8 @@
         <div class="flex space-x-8">
           <nav class="flex items-center space-x-8">
             <g-link to="/" class="font-mono font-bold tracking-widest uppercase"> Home </g-link>
-            <g-link to="/about" class="font-mono font-bold tracking-widest uppercase"> About </g-link>
-            <g-link to="/reviews" class="font-mono font-bold tracking-widest uppercase"> Reviews </g-link>
+            <g-link to="/about/" class="font-mono font-bold tracking-widest uppercase"> About </g-link>
+            <g-link to="/reviews/" class="font-mono font-bold tracking-widest uppercase"> Reviews </g-link>
           </nav>
 
           <div class="relative">

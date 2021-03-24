@@ -1,6 +1,7 @@
 module.exports = {
   siteName: 'Marks Reviews',
   siteUrl: 'https://marks.reviews',
+  icon: './src/favicon.svg',
   plugins: [
     {
       use: '@gridsome/source-filesystem',
@@ -15,8 +16,8 @@ module.exports = {
       options: {
         host: 'https://marks.reviews',
         sitemap: 'https://marks.reviews/sitemap.xml',
-        policy: [ { userAgent: '*', allow: '/' } ]
-      }
+        policy: [{ userAgent: '*', allow: '/' }],
+      },
     },
     {
       use: 'gridsome-plugin-rss',
@@ -25,22 +26,22 @@ module.exports = {
         feedOptions: {
           title: 'Marks Reviews',
           feed_url: 'https://marks.reviews/rss.xml',
-          site_url: 'https://marks.reviews'
+          site_url: 'https://marks.reviews',
         },
-        feedItemOptions: node => ({
+        feedItemOptions: (node) => ({
           title: node.title,
           url: 'https://marks.reviews' + node.path,
-          date: node.date
+          date: node.date,
         }),
         output: {
           dir: './static',
-          name: 'rss.xml'
-        }
-      }
+          name: 'rss.xml',
+        },
+      },
     },
-    { use: '@gridsome/plugin-sitemap' }
+    { use: '@gridsome/plugin-sitemap' },
   ],
-   css: {
+  css: {
     loaderOptions: {
       postcss: {
         plugins: [require('tailwindcss')],
