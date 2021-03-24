@@ -63,8 +63,10 @@ export default {
   },
   computed: {
     searchReviews() {
-      const url = new URL(window.location)
-      const search = url.searchParams.get('q')
+      if (process.isClient) {
+        const url = new URL(window.location)
+        const search = url.searchParams.get('q')
+      }
 
       if (!search) return this.reviews
 
