@@ -15,10 +15,7 @@
 
           <div class="relative">
             <div class="inline-flex items-center justify-center h-24 p-8 border-l border-black">
-              <button
-                v-on:click="search = !search"
-                class="font-mono font-bold tracking-widest uppercase"
-              >
+              <button v-on:click="search = !search" class="font-mono font-bold tracking-widest uppercase">
                 🕵️‍♀️ Search 🕵️
               </button>
             </div>
@@ -55,11 +52,11 @@ import Search from '@/components/Search'
 export default {
   data() {
     return {
-      search: false
+      search: false,
     }
   },
   components: {
-    Search
-  }
+    Search,
+  },
 }
 </script>

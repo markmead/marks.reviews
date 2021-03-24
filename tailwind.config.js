@@ -6,13 +6,13 @@ module.exports = {
   theme: {
     container: {
       center: true,
-      padding: '1rem'
-    }
+      padding: '1rem',
+    },
   },
   variants: {
     extend: {
       translate: ['group-hover'],
-      scale: ['group-hover']
+      scale: ['group-hover'],
     },
   },
   plugins: [require('@tailwindcss/typography')],

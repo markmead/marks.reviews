@@ -3,8 +3,7 @@
     <article>
       <div class="container pt-16 space-y-12">
         <header class="items-center justify-between lg:flex">
-
-          <h1 class="font-extrabold uppercase max-w-prose text-7xl"> {{ $page.review.title }} </h1>
+          <h1 class="font-extrabold uppercase max-w-prose text-7xl">{{ $page.review.title }}</h1>
 
           <div class="mt-4 font-mono font-bold tracking-widest uppercase lg:mt-0">
             <span>Reviewed on:</span>
@@ -27,8 +26,13 @@
           <div class="flow-root">
             <ul class="flex flex-wrap -mx-2 -my-1 list-none">
               <li v-for="review in $page.reviews.edges" :key="review.node.id" class="px-2 py-1">
-                <g-link :to="review.node.path" class="relative font-mono text-sm font-bold tracking-widest uppercase group">
-                  <span class="absolute inset-0 transition-transform transform bg-yellow-200 -rotate-2 group-hover:scale-y-125 group-hover:scale-x-110"></span>
+                <g-link
+                  :to="review.node.path"
+                  class="relative font-mono text-sm font-bold tracking-widest uppercase group"
+                >
+                  <span
+                    class="absolute inset-0 transition-transform transform bg-yellow-200 -rotate-2 group-hover:scale-y-125 group-hover:scale-x-110"
+                  ></span>
 
                   <span class="relative">
                     {{ review.node.title }}
@@ -68,7 +72,7 @@ export default {
   metaInfo() {
     return {
       title: this.$page.review.title,
-      descrition: `Review of ${this.$page.review.title}, reviewed on ${this.$page.review.date}`
+      descrition: `Review of ${this.$page.review.title}, reviewed on ${this.$page.review.date}`,
     }
   },
   data() {

@@ -2,10 +2,8 @@
   <Layout>
     <header>
       <div class="container py-16">
-          <h1 class="font-extrabold uppercase text-7xl">
-            {{ $page.reviews.edges.length }} No faff reviews
-          </h1>
-        </div>
+        <h1 class="font-extrabold uppercase text-7xl">{{ $page.reviews.edges.length }} No faff reviews</h1>
+      </div>
     </header>
 
     <section>
@@ -23,8 +21,8 @@
 
       <div v-else class="container">
         <h2 class="text-4xl font-extrabold uppercase">
-            😢 No results, try again 😢
-          </h2>
+          😢 No results, try again 😢
+        </h2>
       </div>
     </section>
   </Layout>
@@ -52,7 +50,7 @@ export default {
   },
   data() {
     return {
-      reviews: []
+      reviews: [],
     }
   },
   methods: {
@@ -70,7 +68,7 @@ export default {
 
       if (!search) return this.reviews
 
-      return this.reviews.filter(review => {
+      return this.reviews.filter((review) => {
         return review.node.title.toLowerCase().includes(search.toLowerCase().trim())
       })
     },

@@ -7,12 +7,17 @@
 
           <div>
             <p>
-              Here I review things that may interest you. If they've interested me they will be rated highly, if not, then they won't. If any of these reviews upset you, then just know I do not take this website seriously and neither should you.
+              Here I review things that may interest you. If they've interested me they will be rated highly, if not,
+              then they won't. If any of these reviews upset you, then just know I do not take this website seriously
+              and neither should you.
             </p>
           </div>
 
           <div>
-            <g-link to="/reviews" class="relative inline-flex items-center justify-center leading-none border border-black group">
+            <g-link
+              to="/reviews"
+              class="relative inline-flex items-center justify-center leading-none border border-black group"
+            >
               <span
                 class="absolute inset-0 transition-transform transform translate-x-2 translate-y-2 bg-black group-hover:translate-y-0 group-hover:translate-x-0"
               ></span>
@@ -61,7 +66,7 @@ import ReviewCard from '@/components/ReviewCard'
 export default {
   metaInfo: {
     title: 'Marks Reviews',
-    description: 'Read my reviews'
+    description: 'Read my reviews',
   },
   methods: {
     track() {
