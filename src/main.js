@@ -2,7 +2,6 @@ import DefaultLayout from '~/layouts/Default.vue'
 import VueGtag from 'vue-gtag'
 
 import 'tailwindcss/tailwind.css'
-import '@/main.css'
 
 export default function(Vue) {
   Vue.component('Layout', DefaultLayout)
