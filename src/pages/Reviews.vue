@@ -67,7 +67,7 @@ export default {
       if (!this.search) return this.reviews
 
       return this.reviews.filter((review) => {
-        return review.node.title.toLowerCase().includes(search.toLowerCase().trim())
+        return review.node.title.toLowerCase().includes(this.search.toLowerCase().trim())
       })
     },
   },
