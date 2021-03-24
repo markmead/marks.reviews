@@ -1,39 +1,45 @@
 <template>
   <Layout>
-    <article class="prose max-w-none">
-      <header>
-        <h1>{{ $page.review.title }}</h1>
+    <article>
+      <div class="container pt-16 space-y-12">
+        <header class="items-center justify-between lg:flex">
 
-        <div>
-          <span>Reviewed on:</span>
-          <time :datetime="$page.review.date">
-            {{ $page.review.date }}
-          </time>
-        </div>
-      </header>
+          <h1 class="font-extrabold uppercase max-w-prose text-7xl"> {{ $page.review.title }} </h1>
 
-      <div class="my-6">
+          <div class="mt-4 font-mono font-bold tracking-widest uppercase lg:mt-0">
+            <span>Reviewed on:</span>
+
+            <time :datetime="$page.review.date">
+              {{ $page.review.date }}
+            </time>
+          </div>
+        </header>
+
         <client-only>
           <star-rating v-model="$page.review.stars" :increment="0.5" :read-only="true" :show-rating="false" />
         </client-only>
-      </div>
 
-      <div v-html="$page.review.content" />
+        <div class="prose" v-html="$page.review.content"></div>
+
+        <footer class="p-8 space-y-4 border border-black">
+          <p class="font-mono text-lg font-bold tracking-widest uppercase">Read more reviews:</p>
+
+          <div class="flow-root">
+            <ul class="flex flex-wrap -mx-2 -my-1 list-none">
+              <li v-for="review in $page.reviews.edges" :key="review.node.id" class="px-2 py-1">
+                <g-link :to="review.node.path" class="relative font-mono text-sm font-bold tracking-widest uppercase group">
+                  <span class="absolute inset-0 transition-transform transform bg-yellow-200 -rotate-2 group-hover:scale-y-125 group-hover:scale-x-110"></span>
+
+                  <span class="relative">
+                    {{ review.node.title }}
+                  </span>
+                </g-link>
+              </li>
+            </ul>
+          </div>
+        </footer>
+      </div>
     </article>
-
-    <footer class="p-4 space-y-4 bg-gray-100">
-      <p class="text-lg font-bold uppercase">Read more reviews:</p>
-
-      <div class="flow-root">
-        <ul class="flex flex-wrap -mx-2 -my-1 list-none">
-          <li v-for="review in $page.reviews.edges" :key="review.node.id" class="px-2 py-1">
-            <g-link :to="review.node.path" class="underline">
-              {{ review.node.title }}
-            </g-link>
-          </li>
-        </ul>
-      </div>
-    </footer>
   </Layout>
 </template>
 

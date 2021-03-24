@@ -4,14 +4,16 @@ module.exports = {
   purge: ['./src/**/*.vue'],
   darkMode: 'media',
   theme: {
-    extend: {
-      fontFamily: {
-        sans: ['Comic Sans MS', 'Comic Sans', ...defaultTheme.fontFamily.sans]
-      },
-    },
+    container: {
+      center: true,
+      padding: '1rem'
+    }
   },
   variants: {
-    extend: {},
+    extend: {
+      translate: ['group-hover'],
+      scale: ['group-hover']
+    },
   },
   plugins: [require('@tailwindcss/typography')],
 }

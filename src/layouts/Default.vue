@@ -1,30 +1,65 @@
 <template>
-  <div class="max-w-3xl px-4 py-12 mx-auto space-y-8 sm:px-6 lg:px-8">
-    <header class="space-y-4 text-center">
-      <g-link to="/" class="text-2xl font-bold text-center uppercase">
-        Welcome to Marks Reviews
-      </g-link>
+  <div>
+    <header class="border-b border-black">
+      <div class="flex items-center h-24 pl-8">
+        <div class="flex-1">
+          <g-link to="/" class="font-mono text-xl font-bold tracking-widest uppercase"> ⭐️ Marks Reviews </g-link>
+        </div>
 
-      <nav class="space-x-4">
-        <g-link to="/" class="underline">Home</g-link>
-        <g-link to="/about/" class="underline">About</g-link>
-        <g-link to="/reviews/" class="underline">Reviews</g-link>
-      </nav>
+        <div class="flex space-x-8">
+          <nav class="flex items-center space-x-8">
+            <g-link to="/" class="font-mono font-bold tracking-widest uppercase"> Home </g-link>
+            <g-link to="/about" class="font-mono font-bold tracking-widest uppercase"> About </g-link>
+            <g-link to="/reviews" class="font-mono font-bold tracking-widest uppercase"> Reviews </g-link>
+          </nav>
+
+          <div class="relative">
+            <div class="inline-flex items-center justify-center h-24 p-8 border-l border-black">
+              <button
+                v-on:click="search = !search"
+                class="font-mono font-bold tracking-widest uppercase"
+              >
+                🕵️‍♀️ Search 🕵️
+              </button>
+            </div>
+
+            <div
+              v-if="search"
+              class="absolute right-0 top-auto z-10 w-screen max-w-3xl p-8 bg-white border border-black"
+            >
+              <Search />
+            </div>
+          </div>
+        </div>
+      </div>
     </header>
-
-    <marquee class="py-2 text-sm uppercase bg-pink-500">
-      New reviews added every week, check back often to see the latest Marks Reviews
-    </marquee>
 
     <main>
       <slot />
     </main>
 
-    <footer class="p-2 text-center bg-gray-100">
-      <nav class="space-x-4">
-        <a href="/rss.xml" class="underline">RSS</a>
-        <a href="/sitemap.xml" class="underline">Sitemap</a>
-      </nav>
+    <footer>
+      <div class="container py-16">
+        <nav class="flex items-center space-x-8">
+          <a href="/rss.xml" class="font-mono font-bold tracking-widest uppercase"> RSS </a>
+          <a href="/sitemap.xml" class="font-mono font-bold tracking-widest uppercase"> Sitemap </a>
+        </nav>
+      </div>
     </footer>
   </div>
 </template>
+
+<script>
+import Search from '@/components/Search'
+
+export default {
+  data() {
+    return {
+      search: false
+    }
+  },
+  components: {
+    Search
+  }
+}
+</script>

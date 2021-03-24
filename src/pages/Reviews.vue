@@ -1,16 +1,32 @@
 <template>
   <Layout>
-    <div class="prose">
-      <h1>Reviews</h1>
+    <header>
+      <div class="container py-16">
+          <h1 class="font-extrabold uppercase text-7xl">
+            {{ $page.reviews.edges.length }} No faff reviews
+          </h1>
+        </div>
+    </header>
 
-      <ul>
-        <li v-for="review in $page.reviews.edges" :key="review.node.id">
-          <g-link :to="review.node.path">
-            {{ review.node.title }}
-          </g-link>
-        </li>
-      </ul>
-    </div>
+    <section>
+      <div
+        v-if="searchReviews.length > 0"
+        class="container grid grid-cols-1 gap-x-12 gap-y-8 sm:grid-cols-2 lg:grid-cols-3"
+      >
+        <ReviewCard
+          v-for="review in searchReviews"
+          :title="review.node.title"
+          :path="review.node.path"
+          :key="review.path"
+        />
+      </div>
+
+      <div v-else class="container">
+        <h2 class="text-4xl font-extrabold uppercase">
+            😢 No results, try again 😢
+          </h2>
+      </div>
+    </section>
   </Layout>
 </template>
 
@@ -28,9 +44,16 @@
 </page-query>
 
 <script>
+import ReviewCard from '@/components/ReviewCard'
+
 export default {
   metaInfo: {
     title: 'Reviews',
+  },
+  data() {
+    return {
+      reviews: []
+    }
   },
   methods: {
     track() {
@@ -39,6 +62,24 @@ export default {
         page_path: '/reviews/',
       })
     },
+  },
+  computed: {
+    searchReviews() {
+      const url = new URL(window.location)
+      const search = url.searchParams.get('q')
+
+      if (!search) return this.reviews
+
+      return this.reviews.filter(review => {
+        return review.node.title.toLowerCase().includes(search.toLowerCase().trim())
+      })
+    },
+  },
+  mounted() {
+    this.reviews = this.$page.reviews.edges
+  },
+  components: {
+    ReviewCard,
   },
 }
 </script>
