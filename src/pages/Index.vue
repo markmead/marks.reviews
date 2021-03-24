@@ -36,6 +36,7 @@
           v-for="review in $page.reviews.edges"
           :title="review.node.title"
           :path="review.node.path"
+          :date="review.node.date"
           :key="review.path"
         />
       </div>

@@ -6,11 +6,13 @@
 
     <div class="relative flex flex-col items-center justify-between h-full p-12 text-center bg-yellow-200">
       <div>
-        <h2 class="font-mono text-3xl font-bold tracking-widest uppercase">
+        <h2 class="font-mono text-2xl font-bold tracking-widest uppercase">
           {{ title }}
         </h2>
 
-        <p class="mt-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, deleniti?</p>
+        <p class="mt-4 font-mono text-sm font-bold tracking-widest">
+          {{ date }}
+        </p>
       </div>
 
       <div class="relative inline-flex items-center justify-center mt-12 leading-none border border-black group">
@@ -26,6 +28,7 @@ export default {
   props: {
     title: String,
     path: String,
+    date: String,
   },
 }
 </script>

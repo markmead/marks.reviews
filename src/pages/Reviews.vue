@@ -17,6 +17,7 @@
           v-for="review in searchReviews"
           :title="review.node.title"
           :path="review.node.path"
+          :date="review.node.date"
           :key="review.path"
         />
       </div>
@@ -37,6 +38,7 @@
         node {
           title
           path
+          date
         }
       }
     }
